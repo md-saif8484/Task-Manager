@@ -7,7 +7,9 @@ export default function profile()
     return(
 
         <h1>
-            this is user profile page
+            <div>
+                <img src="/assests/bg.jpg"></img>
+            </div>
         </h1>
     )
 }
