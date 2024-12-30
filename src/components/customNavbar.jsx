@@ -114,27 +114,44 @@ function CustomNavbar() {
         </ul>
       </div>
 
-      {/* Mobile Menu
+      {/* Mobile Menu */}
       <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden absolute top-16 left-0 w-full bg-blue-600 p-4`}>
 
         <ul className="flex flex-col space-y-4 text-white">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/add-task">Add Task</Link>
-          </li>
-          <li>
-            <Link href="/show-tasks">Show Task</Link>
-          </li>
-          <li>
-            <Link href="/log-in">Login</Link>
-          </li>
-          <li>
-            <Link href="/signup">Signup</Link>
-          </li>
+        {context.user ? (
+              <>
+                  <li>
+                      <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                      <Link href="/add-task">Add Task</Link>
+                    </li>
+                    <li>
+                      <Link href="/show-tasks">Show Task</Link>
+                    </li>
+              </>
+            ):(null)}
+          {context.user ? (
+                    <>
+                      <li>
+                      <Link href="#!">{context.user.name}</Link>
+                      </li>
+                      <li>
+                        <button onClick={doLogout}>Logout</button>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                        <li>
+                        <Link href="/log-in">Login</Link>
+                        </li>
+                        <li>
+                          <Link href="/signup">SignUp</Link>
+                        </li>
+                    </>
+                  )}
         </ul>
-      </div> */}
+      </div>
     </nav>
   );
 }
